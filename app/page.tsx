@@ -307,7 +307,7 @@ export default function Home() {
       {showTypewriterText && (
         <div
           className={`
-            fixed inset-0 flex items-center justify-center pointer-events-none z-50 pt-[10vh]
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[5vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             translate-y-0 opacity-100
           `}
