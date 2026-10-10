@@ -23,12 +23,31 @@ export default function Home() {
   const [animateButtons, setAnimateButtons] = useState(false);
   const [showRejectMessage, setShowRejectMessage] = useState(false);
   const [accepted, setAccepted] = useState(false);
+  const [showFinalText, setShowFinalText] = useState(false);
+  const [animateFinalText, setAnimateFinalText] = useState(false);
+  const [finalTextIndex, setFinalTextIndex] = useState(0);
+
+  const finalTexts = [
+    "Owwwww",
+    "you actually accepted\nmy flower",
+    "am veryyyy happy"
+  ];
 
   const handleAccept = () => {
     setAccepted(true);
     setAnimateButtons(false);
     setTimeout(() => {
       setShowButtons(false);
+
+      setShowFinalText(true);
+      setTimeout(() => setAnimateFinalText(true), 50);
+
+      setTimeout(() => {
+        setFinalTextIndex(1);
+        setTimeout(() => {
+          setFinalTextIndex(2);
+        }, 3000);
+      }, 3000);
     }, 1000);
   };
 
@@ -235,6 +254,24 @@ export default function Home() {
               u thought i will make it this is for you huh?
             </p>
           </div>
+        </div>
+      )}
+
+      {/* Final Sequence Message */}
+      {showFinalText && (
+        <div
+          className={`
+            fixed inset-0 flex items-center justify-center pointer-events-none z-50 pb-[20vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateFinalText ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
+          `}
+        >
+          <span
+            className="text-4xl md:text-5xl text-white/90 drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed whitespace-pre-line transition-opacity duration-300"
+            style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}
+          >
+            {finalTexts[finalTextIndex]}
+          </span>
         </div>
       )}
     </div>
