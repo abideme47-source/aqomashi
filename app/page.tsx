@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const [showHey, setShowHey] = useState(false);
@@ -180,7 +181,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* Very big flower image - slides in from right */}
+      {/* Flower image - slides in from right */}
       {showFlower && (
         <div
           className={`
@@ -189,17 +190,18 @@ export default function Home() {
             ${animateFlower ? "translate-x-0 opacity-100" : "translate-x-[100vw] opacity-0"}
           `}
         >
-          <img
+          <Image
             src="/flower.png"
             alt="Flower"
+            width={550}
+            height={550}
+            priority
             style={{
-              width: "900px",
-              height: "900px",
               maxWidth: "none",
               flexShrink: 0,
-              transform: accepted ? 'translate(calc(-48vw + 350px), calc(48vh - 350px)) scale(0.75) rotate(-15deg)' : 'translateY(10vh) scale(1) rotate(0deg)'
+              transform: accepted ? 'translate(-35vw, 30vh) scale(0.65) rotate(-15deg)' : 'translateY(10vh) scale(1) rotate(0deg)'
             }}
-            className="drop-shadow-[0_10px_30px_rgba(0,0,0,0.7)] transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
+            className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
           />
         </div>
       )}
@@ -216,13 +218,13 @@ export default function Home() {
           <div className="flex gap-8 items-center" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
             <button
               onClick={handleAccept}
-              className="bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white text-3xl md:text-4xl px-12 py-3 rounded-full shadow-[0_8px_30px_rgba(244,114,182,0.6)] transform transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border-2 border-white/40"
+              className="bg-pink-400 hover:bg-pink-500 text-white text-3xl md:text-4xl px-12 py-3 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40"
             >
               Accept
             </button>
             <button
               onClick={handleReject}
-              className="bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-rose-600 text-white text-3xl md:text-4xl px-12 py-3 rounded-full shadow-[0_8px_30px_rgba(225,29,72,0.6)] transform transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border-2 border-white/40"
+              className="bg-rose-500 hover:bg-rose-600 text-white text-3xl md:text-4xl px-12 py-3 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40"
             >
               Reject
             </button>
