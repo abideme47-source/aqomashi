@@ -220,6 +220,36 @@
   animation: date-question-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+@keyframes pick-night-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pick-night-down {
+  animation: pick-night-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes day-buttons-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-day-buttons-down {
+  animation: day-buttons-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 @keyframes wait-up {
   0% {
     opacity: 0;

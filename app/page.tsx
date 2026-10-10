@@ -48,6 +48,12 @@ export default function Home() {
   const [showDateButtons, setShowDateButtons] = useState(false);
   const [animateDateButtons, setAnimateDateButtons] = useState(false);
   const [showDateRejectMessage, setShowDateRejectMessage] = useState(false);
+  const [showPickNight, setShowPickNight] = useState(false);
+  const [animatePickNight, setAnimatePickNight] = useState(false);
+  const [showDayButtons, setShowDayButtons] = useState(false);
+  const [animateDayButtons, setAnimateDayButtons] = useState(false);
+  const [exitDateQuestion, setExitDateQuestion] = useState(false);
+  const [exitDateButtons, setExitDateButtons] = useState(false);
   const [moveTextsToCorner, setMoveTextsToCorner] = useState(false);
   const [moveFlowerToCenter, setMoveFlowerToCenter] = useState(false);
 
@@ -158,7 +164,19 @@ export default function Home() {
   };
 
   const handleDateOkay = () => {
-    // Handle okay click - could add further logic here
+    setExitDateQuestion(true);
+    setExitDateButtons(true);
+    setTimeout(() => {
+      setShowDateQuestion(false);
+      setShowDateButtons(false);
+      setShowPickNight(true);
+      setTimeout(() => setAnimatePickNight(true), 50);
+    }, 500);
+
+    setTimeout(() => {
+      setShowDayButtons(true);
+      setTimeout(() => setAnimateDayButtons(true), 50);
+    }, 3000);
   };
 
   const handleDateNope = () => {
@@ -495,6 +513,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[5vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateDateQuestion ? "animate-date-question-down" : "opacity-0 -translate-y-full"}
+            ${exitDateQuestion ? "animate-soooo-exit-up" : ""}
           `}
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
@@ -510,6 +529,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center z-50 pt-[18vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateDateButtons ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
+            ${exitDateButtons ? "animate-soooo-exit-up" : ""}
           `}
         >
           <div className="flex flex-col items-center gap-6" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
@@ -532,6 +552,49 @@ export default function Home() {
               <p className="text-white text-base md:text-lg bg-black/40 backdrop-blur-md px-6 py-2 rounded-full font-sans tracking-wide border border-white/20 whitespace-nowrap max-w-md text-center">
                 err besmeab creative lhun balku lene yhe ygebal? aydebam. hooo!
               </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Pick a Night Text */}
+      {showPickNight && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[5vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animatePickNight ? "animate-pick-night-down" : "opacity-0 -translate-y-full"}
+          `}
+        >
+          <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
+            pick a night
+          </span>
+        </div>
+      )}
+
+      {/* Day Buttons */}
+      {showDayButtons && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center z-50 pt-[12vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateDayButtons ? "animate-day-buttons-down" : "opacity-0 -translate-y-full"}
+          `}
+        >
+          <div className="flex flex-col items-center gap-4" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
+            <div className="flex gap-4 items-center flex-wrap justify-center">
+              <button className="bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40">
+                Mon
+              </button>
+              <button className="bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40">
+                Tue
+              </button>
+              <button className="bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40">
+                Wed
+              </button>
+              <button className="bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40">
+                Thu
+              </button>
             </div>
           </div>
         </div>
