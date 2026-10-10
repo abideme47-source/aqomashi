@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Merienda_One } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,9 +13,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const meriendaOne = Merienda_One({
+const meriendaOne = localFont({
+  src: "../public/fonts/MeriendaOne-Regular.ttf",
   variable: "--font-merienda-one",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
