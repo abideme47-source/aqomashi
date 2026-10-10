@@ -222,7 +222,7 @@ export default function Home() {
       setDateConfirmedText("i would love it if u actually take one rn, and not from ur gallery and send it on IG or TG");
     }, 1000 + 4000 + 6000);
     
-    // Exit and show telegram button after 7 more seconds
+    // Exit and show telegram button after 10 more seconds
     setTimeout(() => {
       setExitDateConfirmed(true);
       setAnimateDateConfirmed(false);
@@ -231,7 +231,7 @@ export default function Home() {
         setShowTelegramButton(true);
         setTimeout(() => setAnimateTelegramButton(true), 50);
       }, 1000);
-    }, 1000 + 4000 + 6000 + 7000);
+    }, 1000 + 4000 + 6000 + 10000);
   };
 
   useEffect(() => {
@@ -692,7 +692,7 @@ Decline
           `}
         >
           <a
-            href={`https://t.me/ana_rahwa?text=hey, i think ${selectedDay?.toLowerCase()} night would be nice`}
+            href={`https://t.me/ana_rahwa?text=Hey, I think ${selectedDay?.toLowerCase()} night would be nice%0A%0A(also dont forget the selfie)`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-500 hover:bg-blue-600 text-white text-3xl md:text-4xl px-12 py-4 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40"
