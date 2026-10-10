@@ -21,6 +21,22 @@ export default function Home() {
   const [showButtons, setShowButtons] = useState(false);
   const [animateButtons, setAnimateButtons] = useState(false);
   const [showRejectMessage, setShowRejectMessage] = useState(false);
+  const [accepted, setAccepted] = useState(false);
+
+  const handleAccept = () => {
+    setAccepted(true);
+    setAnimateButtons(false);
+    setTimeout(() => {
+      setShowButtons(false);
+    }, 1000);
+  };
+
+  const handleReject = () => {
+    setShowRejectMessage(true);
+    setTimeout(() => {
+      setShowRejectMessage(false);
+    }, 3000);
+  };
 
   useEffect(() => {
     // 1. Show "Hey!" after 2 seconds
@@ -168,7 +184,7 @@ export default function Home() {
       {showFlower && (
         <div
           className={`
-            fixed inset-0 flex items-center justify-center pointer-events-none z-50
+            fixed inset-0 flex items-center justify-center pointer-events-none z-40
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateFlower ? "translate-x-0 opacity-100" : "translate-x-[100vw] opacity-0"}
           `}
@@ -176,8 +192,14 @@ export default function Home() {
           <img
             src="/flower.png"
             alt="Flower"
-            style={{ width: "900px", height: "900px", maxWidth: "none", flexShrink: 0 }}
-            className="drop-shadow-[0_10px_30px_rgba(0,0,0,0.7)] translate-y-[10vh]"
+            style={{
+              width: "900px",
+              height: "900px",
+              maxWidth: "none",
+              flexShrink: 0,
+              transform: accepted ? 'translate(calc(-48vw + 350px), calc(48vh - 350px)) scale(0.75)' : 'translateY(10vh) scale(1)'
+            }}
+            className="drop-shadow-[0_10px_30px_rgba(0,0,0,0.7)] transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
           />
         </div>
       )}
@@ -192,11 +214,14 @@ export default function Home() {
           `}
         >
           <div className="flex gap-8 items-center" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
-            <button className="bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white text-3xl md:text-4xl px-12 py-3 rounded-full shadow-[0_8px_30px_rgba(244,114,182,0.6)] transform transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border-2 border-white/40">
+            <button
+              onClick={handleAccept}
+              className="bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white text-3xl md:text-4xl px-12 py-3 rounded-full shadow-[0_8px_30px_rgba(244,114,182,0.6)] transform transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border-2 border-white/40"
+            >
               Accept
             </button>
             <button
-              onClick={() => setShowRejectMessage(true)}
+              onClick={handleReject}
               className="bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-rose-600 text-white text-3xl md:text-4xl px-12 py-3 rounded-full shadow-[0_8px_30px_rgba(225,29,72,0.6)] transform transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border-2 border-white/40"
             >
               Reject
@@ -205,7 +230,7 @@ export default function Home() {
 
           <div className={`mt-6 h-8 transition-opacity duration-500 ${showRejectMessage ? 'opacity-100' : 'opacity-0'}`}>
             <p className="text-white text-base md:text-lg bg-black/40 backdrop-blur-md px-6 py-2 rounded-full font-sans tracking-wide border border-white/20 whitespace-nowrap">
-              u thought i will make it this is for you, huh?
+              u thought i will make it this is for you huh?
             </p>
           </div>
         </div>
