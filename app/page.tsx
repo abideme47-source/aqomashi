@@ -214,7 +214,7 @@ export default function Home() {
     
     // Change to second text after 4 seconds
     setTimeout(() => {
-      setDateConfirmedText("you know what? dont you think this guy deserves a lovely smile selfie of your?");
+      setDateConfirmedText("you know what? dont you think this guy deserves a lovely smile selfie of yours?");
     }, 1000 + 4000);
     
     // Change to third text after 6 more seconds
