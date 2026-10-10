@@ -26,12 +26,18 @@ export default function Home() {
   const [showFinalText, setShowFinalText] = useState(false);
   const [animateFinalText, setAnimateFinalText] = useState(false);
   const [finalTextIndex, setFinalTextIndex] = useState(0);
+  const [exitFinalText, setExitFinalText] = useState(false);
+  const [showTypewriterText, setShowTypewriterText] = useState(false);
+  const [typewriterText, setTypewriterText] = useState("");
+  const [typewriterComplete, setTypewriterComplete] = useState(false);
 
   const finalTexts = [
     "Owwwww",
     "you actually accepted\nmy flower",
     "am veryyyy happy"
   ];
+
+  const longText = "I was thinking abt our next week date, ena balefew bedereku and dnget yeteyekush meselegn, so i thought why not be creative abt it and ask her bezi menged, cuz u are the most exciting thing that is happening to me recently\n\nand am lovingg it that way!";
 
   const handleAccept = () => {
     setAccepted(true);
@@ -48,6 +54,27 @@ export default function Home() {
           setFinalTextIndex(2);
         }, 3000);
       }, 3000);
+
+      setTimeout(() => {
+        setExitFinalText(true);
+        setAnimateFinalText(false);
+        setTimeout(() => {
+          setShowFinalText(false);
+          setShowTypewriterText(true);
+          setTypewriterText("");
+          setTypewriterComplete(false);
+          let i = 0;
+          const typeInterval = setInterval(() => {
+            if (i < longText.length) {
+              setTypewriterText(longText.slice(0, i + 1));
+              i++;
+            } else {
+              clearInterval(typeInterval);
+              setTypewriterComplete(true);
+            }
+          }, 30);
+        }, 1000);
+      }, 3000 + 3000 + 3000 + 3000);
     }, 1000);
   };
 
@@ -264,6 +291,7 @@ export default function Home() {
             fixed inset-0 flex items-center justify-center pointer-events-none z-50 pb-[20vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateFinalText ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
+            ${exitFinalText ? "animate-typewriter-exit" : ""}
           `}
         >
           <span
@@ -272,6 +300,27 @@ export default function Home() {
           >
             {finalTexts[finalTextIndex]}
           </span>
+        </div>
+      )}
+
+      {/* Typewriter Text */}
+      {showTypewriterText && (
+        <div
+          className={`
+            fixed inset-0 flex items-center justify-center pointer-events-none z-50 pt-[10vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            translate-y-0 opacity-100
+          `}
+        >
+          <div className="max-w-2xl px-6 text-center leading-relaxed">
+            <span
+              className="text-lg md:text-xl text-white/90 drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] whitespace-pre-line"
+              style={{ fontFamily: "var(--font-sans), Arial, Helvetica, sans-serif" }}
+            >
+              {typewriterText}
+              {typewriterComplete && <span className="animate-pulse">|</span>}
+            </span>
+          </div>
         </div>
       )}
     </div>
