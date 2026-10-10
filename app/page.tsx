@@ -118,7 +118,7 @@ export default function Home() {
           setShowSoooo(true);
           setTimeout(() => setAnimateSoooo(true), 50);
         }, 1000);
-      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 25000 + 1000);
 
       setTimeout(() => {
         setShowMiPanda(true);
@@ -212,17 +212,17 @@ export default function Home() {
       setTimeout(() => setAnimateDateConfirmed(true), 50);
     }, 1000);
     
-    // Change to second text after 5 seconds
+    // Change to second text after 4 seconds
     setTimeout(() => {
       setDateConfirmedText("you know what? dont you think this guy deserves a lovely smile selfie of your?");
-    }, 1000 + 5000);
+    }, 1000 + 4000);
     
-    // Change to third text after 5 more seconds
+    // Change to third text after 6 more seconds
     setTimeout(() => {
-      setDateConfirmedText("i would love it if u actually take one rn, and not from ur gallery");
-    }, 1000 + 5000 + 5000);
+      setDateConfirmedText("i would love it if u actually take one rn, and not from ur gallery and send it on IG or TG");
+    }, 1000 + 4000 + 6000);
     
-    // Exit and show telegram button after 5 more seconds
+    // Exit and show telegram button after 7 more seconds
     setTimeout(() => {
       setExitDateConfirmed(true);
       setAnimateDateConfirmed(false);
@@ -231,7 +231,7 @@ export default function Home() {
         setShowTelegramButton(true);
         setTimeout(() => setAnimateTelegramButton(true), 50);
       }, 1000);
-    }, 1000 + 5000 + 5000 + 5000);
+    }, 1000 + 4000 + 6000 + 7000);
   };
 
   useEffect(() => {
@@ -421,7 +421,7 @@ export default function Home() {
               onClick={handleReject}
               className="bg-rose-500 hover:bg-rose-600 text-white text-3xl md:text-4xl px-12 py-3 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40"
             >
-              Reject
+Decline
             </button>
           </div>
 
