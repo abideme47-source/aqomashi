@@ -250,6 +250,36 @@
   animation: day-buttons-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+@keyframes date-confirmed-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-date-confirmed-down {
+  animation: date-confirmed-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes telegram-button-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-telegram-button-down {
+  animation: telegram-button-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 @keyframes wait-up {
   0% {
     opacity: 0;

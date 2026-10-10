@@ -56,6 +56,15 @@ export default function Home() {
   const [exitDateButtons, setExitDateButtons] = useState(false);
   const [moveTextsToCorner, setMoveTextsToCorner] = useState(false);
   const [moveFlowerToCenter, setMoveFlowerToCenter] = useState(false);
+  const [selectedDay, setSelectedDay] = useState<string | null>(null);
+  const [exitPickNight, setExitPickNight] = useState(false);
+  const [exitDayButtons, setExitDayButtons] = useState(false);
+  const [showDateConfirmed, setShowDateConfirmed] = useState(false);
+  const [animateDateConfirmed, setAnimateDateConfirmed] = useState(false);
+  const [dateConfirmedText, setDateConfirmedText] = useState("");
+  const [exitDateConfirmed, setExitDateConfirmed] = useState(false);
+  const [showTelegramButton, setShowTelegramButton] = useState(false);
+  const [animateTelegramButton, setAnimateTelegramButton] = useState(false);
 
   const finalTexts = [
     "Owwwww",
@@ -184,6 +193,45 @@ export default function Home() {
     setTimeout(() => {
       setShowDateRejectMessage(false);
     }, 3000);
+  };
+
+  const handleDaySelect = (day: string) => {
+    setSelectedDay(day);
+    
+    // Exit pick a night and day buttons
+    setExitPickNight(true);
+    setExitDayButtons(true);
+    
+    setTimeout(() => {
+      setShowPickNight(false);
+      setShowDayButtons(false);
+      
+      // Show first confirmation text
+      setDateConfirmedText("Owww, u actually picked a date, am loving it");
+      setShowDateConfirmed(true);
+      setTimeout(() => setAnimateDateConfirmed(true), 50);
+    }, 2000);
+    
+    // Change to second text after 3 seconds
+    setTimeout(() => {
+      setDateConfirmedText("you what? dont you think this guy deserves a lovely smile selfie of your?");
+    }, 2000 + 3000);
+    
+    // Change to third text after 4 more seconds
+    setTimeout(() => {
+      setDateConfirmedText("i would love it if u actually take one rn, and not from ur gallery");
+    }, 2000 + 3000 + 4000);
+    
+    // Exit and show telegram button after 4 more seconds
+    setTimeout(() => {
+      setExitDateConfirmed(true);
+      setAnimateDateConfirmed(false);
+      setTimeout(() => {
+        setShowDateConfirmed(false);
+        setShowTelegramButton(true);
+        setTimeout(() => setAnimateTelegramButton(true), 50);
+      }, 1000);
+    }, 2000 + 3000 + 4000 + 4000);
   };
 
   useEffect(() => {
@@ -564,6 +612,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[5vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animatePickNight ? "animate-pick-night-down" : "opacity-0 -translate-y-full"}
+            ${exitPickNight ? "animate-soooo-exit-up" : ""}
           `}
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
@@ -579,24 +628,78 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center z-50 pt-[12vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateDayButtons ? "animate-day-buttons-down" : "opacity-0 -translate-y-full"}
+            ${exitDayButtons ? "animate-soooo-exit-up" : ""}
           `}
         >
           <div className="flex flex-col items-center gap-4" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
             <div className="flex gap-4 items-center flex-wrap justify-center">
-              <button className="bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40">
+              <button
+                onClick={() => handleDaySelect("Monday")}
+                className={`bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40 ${selectedDay === "Monday" ? "bg-pink-600 scale-110" : ""}`}
+                disabled={!!selectedDay}
+              >
                 Mon
               </button>
-              <button className="bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40">
+              <button
+                onClick={() => handleDaySelect("Tuesday")}
+                className={`bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40 ${selectedDay === "Tuesday" ? "bg-pink-600 scale-110" : ""}`}
+                disabled={!!selectedDay}
+              >
                 Tue
               </button>
-              <button className="bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40">
+              <button
+                onClick={() => handleDaySelect("Wednesday")}
+                className={`bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40 ${selectedDay === "Wednesday" ? "bg-pink-600 scale-110" : ""}`}
+                disabled={!!selectedDay}
+              >
                 Wed
               </button>
-              <button className="bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40">
+              <button
+                onClick={() => handleDaySelect("Thursday")}
+                className={`bg-pink-400 hover:bg-pink-500 text-white text-2xl md:text-3xl px-8 py-2 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40 ${selectedDay === "Thursday" ? "bg-pink-600 scale-110" : ""}`}
+                disabled={!!selectedDay}
+              >
                 Thu
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Date Confirmed Text Sequence */}
+      {showDateConfirmed && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[5vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateDateConfirmed ? "animate-date-confirmed-down" : "opacity-0 -translate-y-full"}
+            ${exitDateConfirmed ? "animate-soooo-exit-up" : ""}
+          `}
+        >
+          <span className="text-3xl md:text-4xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
+            {dateConfirmedText}
+          </span>
+        </div>
+      )}
+
+      {/* Telegram Button */}
+      {showTelegramButton && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center z-50 pt-[12vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateTelegramButton ? "animate-telegram-button-down" : "opacity-0 -translate-y-full"}
+          `}
+        >
+          <a
+            href={`https://t.me/ana_rahwa?text=hey, i think ${selectedDay?.toLowerCase()} night would be nice`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-500 hover:bg-blue-600 text-white text-3xl md:text-4xl px-12 py-4 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40"
+            style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}
+          >
+            go to telegram
+          </a>
         </div>
       )}
     </div>
