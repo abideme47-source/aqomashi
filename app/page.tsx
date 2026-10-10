@@ -41,6 +41,15 @@ export default function Home() {
   const [animateWubalem, setAnimateWubalem] = useState(false);
   const [showEuphoria, setShowEuphoria] = useState(false);
   const [animateEuphoria, setAnimateEuphoria] = useState(false);
+  const [exitSoooo, setExitSoooo] = useState(false);
+  const [hideEuphoria, setHideEuphoria] = useState(false);
+  const [showDateQuestion, setShowDateQuestion] = useState(false);
+  const [animateDateQuestion, setAnimateDateQuestion] = useState(false);
+  const [showDateButtons, setShowDateButtons] = useState(false);
+  const [animateDateButtons, setAnimateDateButtons] = useState(false);
+  const [showDateRejectMessage, setShowDateRejectMessage] = useState(false);
+  const [moveTextsToCorner, setMoveTextsToCorner] = useState(false);
+  const [moveFlowerToCenter, setMoveFlowerToCenter] = useState(false);
 
   const finalTexts = [
     "Owwwww",
@@ -115,6 +124,29 @@ export default function Home() {
         setShowEuphoria(true);
         setTimeout(() => setAnimateEuphoria(true), 50);
       }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000);
+
+      // Subtask 1: After 4 seconds, slide up SOOOOO and hide euphoria, show date question
+      setTimeout(() => {
+        setExitSoooo(true);
+        setHideEuphoria(true);
+        setTimeout(() => {
+          setShowSoooo(false);
+          setShowDateQuestion(true);
+          setTimeout(() => setAnimateDateQuestion(true), 50);
+        }, 1000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000);
+
+      // Subtask 2: Move texts to corner and flower to center
+      setTimeout(() => {
+        setMoveTextsToCorner(true);
+        setMoveFlowerToCenter(true);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000 + 500);
+
+      // Subtask 3: After 4 seconds, show date buttons
+      setTimeout(() => {
+        setShowDateButtons(true);
+        setTimeout(() => setAnimateDateButtons(true), 50);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000 + 1000 + 4000);
     }, 1000);
   };
 
@@ -122,6 +154,17 @@ export default function Home() {
     setShowRejectMessage(true);
     setTimeout(() => {
       setShowRejectMessage(false);
+    }, 3000);
+  };
+
+  const handleDateOkay = () => {
+    // Handle okay click - could add further logic here
+  };
+
+  const handleDateNope = () => {
+    setShowDateRejectMessage(true);
+    setTimeout(() => {
+      setShowDateRejectMessage(false);
     }, 3000);
   };
 
@@ -285,7 +328,7 @@ export default function Home() {
             style={{
               maxWidth: "none",
               flexShrink: 0,
-              transform: accepted ? 'translate(-35vw, 30vh) scale(0.65) rotate(-15deg)' : 'translateY(10vh) scale(1) rotate(0deg)'
+              transform: moveFlowerToCenter ? 'translate(0, -5vh) scale(1) rotate(0deg)' : accepted ? 'translate(-35vw, 30vh) scale(0.65) rotate(-15deg)' : 'translateY(10vh) scale(1) rotate(0deg)'
             }}
             className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
           />
@@ -372,6 +415,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[5vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateSoooo ? "animate-soooo-down" : "opacity-0 -translate-y-full"}
+            ${exitSoooo ? "animate-soooo-exit-up" : ""}
           `}
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
@@ -387,6 +431,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[10vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateMiPanda ? "animate-mi-panda-down" : "opacity-0 -translate-y-full"}
+            ${moveTextsToCorner ? "opacity-60 translate-x-[-35vw] translate-y-[30vh] scale-75" : ""}
           `}
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
@@ -402,6 +447,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[15vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateAqomashi ? "animate-aqomashi-down" : "opacity-0 -translate-y-full"}
+            ${moveTextsToCorner ? "opacity-60 translate-x-[-35vw] translate-y-[30vh] scale-75" : ""}
           `}
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
@@ -417,6 +463,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[20vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateWubalem ? "animate-wubalem-down" : "opacity-0 -translate-y-full"}
+            ${moveTextsToCorner ? "opacity-60 translate-x-[-35vw] translate-y-[30vh] scale-75" : ""}
           `}
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
@@ -426,17 +473,67 @@ export default function Home() {
       )}
 
       {/* Euphoria Text */}
-      {showEuphoria && (
+      {showEuphoria && !hideEuphoria && (
         <div
           className={`
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[25vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateEuphoria ? "animate-euphoria-down" : "opacity-0 -translate-y-full"}
+            ${moveTextsToCorner ? "opacity-60 translate-x-[-35vw] translate-y-[30vh] scale-75" : ""}
           `}
         >
           <span className="text-3xl md:text-4xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
             the girl who gives me euphoria by just looking at her
           </span>
+        </div>
+      )}
+
+      {/* Date Question Text */}
+      {showDateQuestion && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[5vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateDateQuestion ? "animate-date-question-down" : "opacity-0 -translate-y-full"}
+          `}
+        >
+          <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
+            Would you go out on a date with me?
+          </span>
+        </div>
+      )}
+
+      {/* Date Buttons */}
+      {showDateButtons && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[12vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateDateButtons ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
+          `}
+        >
+          <div className="flex flex-col items-center gap-6" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
+            <div className="flex gap-8 items-center">
+              <button
+                onClick={handleDateOkay}
+                className="bg-pink-400 hover:bg-pink-500 text-white text-3xl md:text-4xl px-12 py-3 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40"
+              >
+                Okay
+              </button>
+              <button
+                onClick={handleDateNope}
+                className="bg-rose-500 hover:bg-rose-600 text-white text-3xl md:text-4xl px-12 py-3 rounded-full transform transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/40"
+              >
+                Nope
+              </button>
+            </div>
+
+            <div className={`h-8 transition-opacity duration-500 ${showDateRejectMessage ? 'opacity-100' : 'opacity-0'}`}>
+              <p className="text-white text-base md:text-lg bg-black/40 backdrop-blur-md px-6 py-2 rounded-full font-sans tracking-wide border border-white/20 whitespace-nowrap max-w-md text-center">
+                err besmeab creative lhun balku lene yhe ygebal? aydebam. hooo!
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </div>
