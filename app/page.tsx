@@ -20,6 +20,7 @@ export default function Home() {
   const [animateFlower, setAnimateFlower] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
   const [animateButtons, setAnimateButtons] = useState(false);
+  const [showRejectMessage, setShowRejectMessage] = useState(false);
 
   useEffect(() => {
     // 1. Show "Hey!" after 2 seconds
@@ -185,18 +186,28 @@ export default function Home() {
       {showButtons && (
         <div
           className={`
-            fixed bottom-24 inset-x-0 flex items-center justify-center gap-8 z-50
+            fixed bottom-12 inset-x-0 flex flex-col items-center justify-center z-50
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateButtons ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
           `}
-          style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}
         >
-          <button className="bg-pink-400 hover:bg-pink-500 text-white text-3xl md:text-4xl px-12 py-4 rounded-full shadow-[0_4px_20px_rgba(244,114,182,0.6)] transform transition-transform hover:scale-105 cursor-pointer">
-            Accept
-          </button>
-          <button className="bg-red-500 hover:bg-red-600 text-white text-3xl md:text-4xl px-12 py-4 rounded-full shadow-[0_4px_20px_rgba(239,68,68,0.6)] transform transition-transform hover:scale-105 cursor-pointer">
-            Reject
-          </button>
+          <div className="flex gap-8 items-center" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
+            <button className="bg-gradient-to-r from-pink-400 to-pink-500 hover:from-pink-500 hover:to-pink-600 text-white text-3xl md:text-4xl px-12 py-3 rounded-full shadow-[0_8px_30px_rgba(244,114,182,0.6)] transform transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border-2 border-white/40">
+              Accept
+            </button>
+            <button
+              onClick={() => setShowRejectMessage(true)}
+              className="bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-rose-600 text-white text-3xl md:text-4xl px-12 py-3 rounded-full shadow-[0_8px_30px_rgba(225,29,72,0.6)] transform transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer border-2 border-white/40"
+            >
+              Reject
+            </button>
+          </div>
+
+          <div className={`mt-6 h-8 transition-opacity duration-500 ${showRejectMessage ? 'opacity-100' : 'opacity-0'}`}>
+            <p className="text-white text-base md:text-lg bg-black/40 backdrop-blur-md px-6 py-2 rounded-full font-sans tracking-wide border border-white/20 whitespace-nowrap">
+              u thought i will make it this is for you, huh?
+            </p>
+          </div>
         </div>
       )}
     </div>
