@@ -35,6 +35,12 @@ export default function Home() {
   const [animateSoooo, setAnimateSoooo] = useState(false);
   const [showMiPanda, setShowMiPanda] = useState(false);
   const [animateMiPanda, setAnimateMiPanda] = useState(false);
+  const [showAqomashi, setShowAqomashi] = useState(false);
+  const [animateAqomashi, setAnimateAqomashi] = useState(false);
+  const [showWubalem, setShowWubalem] = useState(false);
+  const [animateWubalem, setAnimateWubalem] = useState(false);
+  const [showEuphoria, setShowEuphoria] = useState(false);
+  const [animateEuphoria, setAnimateEuphoria] = useState(false);
 
   const finalTexts = [
     "Owwwww",
@@ -94,6 +100,21 @@ export default function Home() {
         setShowMiPanda(true);
         setTimeout(() => setAnimateMiPanda(true), 50);
       }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000);
+
+      setTimeout(() => {
+        setShowAqomashi(true);
+        setTimeout(() => setAnimateAqomashi(true), 50);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000 + 3000);
+
+      setTimeout(() => {
+        setShowWubalem(true);
+        setTimeout(() => setAnimateWubalem(true), 50);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000 + 3000 + 3000);
+
+      setTimeout(() => {
+        setShowEuphoria(true);
+        setTimeout(() => setAnimateEuphoria(true), 50);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000);
     }, 1000);
   };
 
@@ -370,6 +391,51 @@ export default function Home() {
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
             Mi Panda
+          </span>
+        </div>
+      )}
+
+      {/* Aqomashi Text */}
+      {showAqomashi && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[15vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateAqomashi ? "animate-aqomashi-down" : "opacity-0 -translate-y-full"}
+          `}
+        >
+          <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
+            Aqomashi
+          </span>
+        </div>
+      )}
+
+      {/* Wubalem Text */}
+      {showWubalem && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[20vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateWubalem ? "animate-wubalem-down" : "opacity-0 -translate-y-full"}
+          `}
+        >
+          <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
+            wubalem
+          </span>
+        </div>
+      )}
+
+      {/* Euphoria Text */}
+      {showEuphoria && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[25vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateEuphoria ? "animate-euphoria-down" : "opacity-0 -translate-y-full"}
+          `}
+        >
+          <span className="text-3xl md:text-4xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
+            the girl who gives me euphoria by just looking at her
           </span>
         </div>
       )}

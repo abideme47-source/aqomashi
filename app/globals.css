@@ -145,6 +145,51 @@
   animation: mi-panda-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+@keyframes aqomashi-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-aqomashi-down {
+  animation: aqomashi-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes wubalem-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-wubalem-down {
+  animation: wubalem-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes euphoria-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-euphoria-down {
+  animation: euphoria-down 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 @keyframes wait-up {
   0% {
     opacity: 0;
