@@ -30,6 +30,9 @@ export default function Home() {
   const [showTypewriterText, setShowTypewriterText] = useState(false);
   const [typewriterText, setTypewriterText] = useState("");
   const [typewriterComplete, setTypewriterComplete] = useState(false);
+  const [exitTypewriterText, setExitTypewriterText] = useState(false);
+  const [showSoooo, setShowSoooo] = useState(false);
+  const [animateSoooo, setAnimateSoooo] = useState(false);
 
   const finalTexts = [
     "Owwwww",
@@ -75,6 +78,15 @@ export default function Home() {
           }, 30);
         }, 1000);
       }, 3000 + 3000 + 3000 + 3000);
+
+      setTimeout(() => {
+        setExitTypewriterText(true);
+        setTimeout(() => {
+          setShowTypewriterText(false);
+          setShowSoooo(true);
+          setTimeout(() => setAnimateSoooo(true), 50);
+        }, 1000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000);
     }, 1000);
   };
 
@@ -310,6 +322,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[5vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             translate-y-0 opacity-100
+            ${exitTypewriterText ? "animate-typewriter-exit" : ""}
           `}
         >
           <div className="max-w-2xl px-6 text-center leading-relaxed">
@@ -321,6 +334,21 @@ export default function Home() {
               {typewriterComplete && <span className="animate-pulse">|</span>}
             </span>
           </div>
+        </div>
+      )}
+
+      {/* SOOOOO Text */}
+      {showSoooo && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[5vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateSoooo ? "animate-soooo-down" : "opacity-0 -translate-y-full"}
+          `}
+        >
+          <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
+            SOOOOO
+          </span>
         </div>
       )}
     </div>
