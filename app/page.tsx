@@ -328,7 +328,7 @@ export default function Home() {
             style={{
               maxWidth: "none",
               flexShrink: 0,
-              transform: moveFlowerToCenter ? 'translate(0, 8vh) scale(0.85) rotate(0deg)' : accepted ? 'translate(-35vw, 30vh) scale(0.65) rotate(-15deg)' : 'translateY(10vh) scale(1) rotate(0deg)'
+              transform: moveFlowerToCenter ? 'translate(0, 15vh) scale(0.6) rotate(0deg)' : accepted ? 'translate(-35vw, 30vh) scale(0.65) rotate(-15deg)' : 'translateY(10vh) scale(1) rotate(0deg)'
             }}
             className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
           />
@@ -431,7 +431,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[10vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateMiPanda ? "animate-mi-panda-down" : "opacity-0 -translate-y-full"}
-            ${moveTextsToCorner ? "opacity-60 translate-x-[-35vw] translate-y-[30vh] scale-75" : ""}
+            ${moveTextsToCorner ? "opacity-30 translate-x-[-35vw] translate-y-[30vh] scale-75" : ""}
           `}
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
@@ -447,7 +447,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[15vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateAqomashi ? "animate-aqomashi-down" : "opacity-0 -translate-y-full"}
-            ${moveTextsToCorner ? "opacity-60 translate-x-[-35vw] translate-y-[30vh] scale-75" : ""}
+            ${moveTextsToCorner ? "opacity-30 translate-x-[-35vw] translate-y-[40vh] scale-75" : ""}
           `}
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
@@ -463,7 +463,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[20vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateWubalem ? "animate-wubalem-down" : "opacity-0 -translate-y-full"}
-            ${moveTextsToCorner ? "opacity-60 translate-x-[-35vw] translate-y-[30vh] scale-75" : ""}
+            ${moveTextsToCorner ? "opacity-30 translate-x-[-35vw] translate-y-[50vh] scale-75" : ""}
           `}
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
@@ -479,7 +479,7 @@ export default function Home() {
             fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[25vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateEuphoria ? "animate-euphoria-down" : "opacity-0 -translate-y-full"}
-            ${moveTextsToCorner ? "opacity-60 translate-x-[-35vw] translate-y-[30vh] scale-75" : ""}
+            ${moveTextsToCorner ? "opacity-30 translate-x-[-35vw] translate-y-[60vh] scale-75" : ""}
           `}
         >
           <span className="text-3xl md:text-4xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
@@ -507,7 +507,7 @@ export default function Home() {
       {showDateButtons && (
         <div
           className={`
-            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[15vh]
+            fixed inset-0 flex items-start justify-center z-50 pt-[15vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateDateButtons ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
           `}
