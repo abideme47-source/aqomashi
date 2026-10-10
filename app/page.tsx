@@ -368,7 +368,7 @@ export default function Home() {
             ${animateMiPanda ? "animate-mi-panda-down" : "opacity-0 -translate-y-full"}
           `}
         >
-          <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-sans), Arial, Helvetica, sans-serif" }}>
+          <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-merienda-one), cursive" }}>
             Mi Panda
           </span>
         </div>
