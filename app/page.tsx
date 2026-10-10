@@ -498,7 +498,7 @@ export default function Home() {
           `}
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
-            Would you go out on a date with me?
+            Would you go out for erat with me?
           </span>
         </div>
       )}
@@ -507,7 +507,7 @@ export default function Home() {
       {showDateButtons && (
         <div
           className={`
-            fixed inset-0 flex items-start justify-center z-50 pt-[15vh]
+            fixed inset-0 flex items-start justify-center z-50 pt-[18vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateDateButtons ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
           `}
