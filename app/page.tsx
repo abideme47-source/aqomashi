@@ -142,11 +142,11 @@ export default function Home() {
         setMoveFlowerToCenter(true);
       }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000 + 500);
 
-      // Subtask 3: After 4 seconds, show date buttons
+      // Subtask 3: After 3 seconds, show date buttons
       setTimeout(() => {
         setShowDateButtons(true);
         setTimeout(() => setAnimateDateButtons(true), 50);
-      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000 + 1000 + 4000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000 + 1000 + 3000);
     }, 1000);
   };
 
@@ -328,7 +328,7 @@ export default function Home() {
             style={{
               maxWidth: "none",
               flexShrink: 0,
-              transform: moveFlowerToCenter ? 'translate(0, -5vh) scale(1) rotate(0deg)' : accepted ? 'translate(-35vw, 30vh) scale(0.65) rotate(-15deg)' : 'translateY(10vh) scale(1) rotate(0deg)'
+              transform: moveFlowerToCenter ? 'translate(0, 8vh) scale(0.85) rotate(0deg)' : accepted ? 'translate(-35vw, 30vh) scale(0.65) rotate(-15deg)' : 'translateY(10vh) scale(1) rotate(0deg)'
             }}
             className="drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
           />
@@ -507,7 +507,7 @@ export default function Home() {
       {showDateButtons && (
         <div
           className={`
-            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[12vh]
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[15vh]
             transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
             ${animateDateButtons ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
           `}
