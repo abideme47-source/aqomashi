@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@font-face {
+  font-family: 'MGF Pinlock Personal Use';
+  src: url('/fonts/MgfPinlockPersonalUse.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@keyframes hey-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-hey-up {
+  animation: hey-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes hey-shift {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-40vh);
+  }
+}
+
+.animate-hey-shift {
+  animation: hey-shift 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes message-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-message-up {
+  animation: message-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes message-up-delayed {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(180px);
+  }
+}
+
+.animate-message-up-delayed {
+  animation: message-up-delayed 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes exit-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh);
+  }
+}
+
+.animate-exit-up {
+  animation: exit-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes wait-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-wait-up {
+  animation: wait-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slide-left {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-100vw, 0);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 1s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+@keyframes flower-in {
+  0% {
+    opacity: 0;
+    transform: translate(100vw, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+.animate-flower-in {
+  animation: flower-in 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: url('/background.png') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
