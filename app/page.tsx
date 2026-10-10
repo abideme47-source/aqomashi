@@ -118,27 +118,27 @@ export default function Home() {
           setShowSoooo(true);
           setTimeout(() => setAnimateSoooo(true), 50);
         }, 1000);
-      }, 3000 + 3000 + 3000 + 3000 + 1000 + 25000 + 1000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 20000 + 1000);
 
       setTimeout(() => {
         setShowMiPanda(true);
         setTimeout(() => setAnimateMiPanda(true), 50);
-      }, 3000 + 3000 + 3000 + 3000 + 1000 + 25000 + 1000 + 1000 + 3000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 20000 + 1000 + 1000 + 3000);
 
       setTimeout(() => {
         setShowAqomashi(true);
         setTimeout(() => setAnimateAqomashi(true), 50);
-      }, 3000 + 3000 + 3000 + 3000 + 1000 + 25000 + 1000 + 1000 + 3000 + 3000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 20000 + 1000 + 1000 + 3000 + 3000);
 
       setTimeout(() => {
         setShowWubalem(true);
         setTimeout(() => setAnimateWubalem(true), 50);
-      }, 3000 + 3000 + 3000 + 3000 + 1000 + 25000 + 1000 + 1000 + 3000 + 3000 + 3000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 20000 + 1000 + 1000 + 3000 + 3000 + 3000);
 
       setTimeout(() => {
         setShowEuphoria(true);
         setTimeout(() => setAnimateEuphoria(true), 50);
-      }, 3000 + 3000 + 3000 + 3000 + 1000 + 25000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 20000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000);
 
       // Subtask 1: After 4 seconds, slide up SOOOOO and hide euphoria, show date question
       setTimeout(() => {
@@ -149,19 +149,19 @@ export default function Home() {
           setShowDateQuestion(true);
           setTimeout(() => setAnimateDateQuestion(true), 50);
         }, 1000);
-      }, 3000 + 3000 + 3000 + 3000 + 1000 + 25000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 20000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000);
 
       // Subtask 2: Move texts to corner and flower to center
       setTimeout(() => {
         setMoveTextsToCorner(true);
         setMoveFlowerToCenter(true);
-      }, 3000 + 3000 + 3000 + 3000 + 1000 + 25000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000 + 500);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 20000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000 + 500);
 
       // Subtask 3: After 3 seconds, show date buttons
       setTimeout(() => {
         setShowDateButtons(true);
         setTimeout(() => setAnimateDateButtons(true), 50);
-      }, 3000 + 3000 + 3000 + 3000 + 1000 + 25000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000 + 1000 + 3000);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 20000 + 1000 + 1000 + 3000 + 3000 + 3000 + 3000 + 4000 + 1000 + 3000);
     }, 1000);
   };
 
