@@ -264,39 +264,39 @@ export default function Home() {
       setTimeout(() => setAnimateThirdMessage(true), 50);
     }, 4200 + 4500 + 4500 + 4500); // 13.2s + 4.5s = 17.7s
 
-    // 6. After 4 seconds (at ~21.7s), exit all texts upward
+    // 6. After 3 seconds (at ~20.7s), exit all texts upward
     const timer6 = setTimeout(() => {
       setExitAll(true);
-    }, 4200 + 4500 + 4500 + 4500 + 4000); // 17.7s + 4s = 21.7s
+    }, 4200 + 4500 + 4500 + 4500 + 3000); // 17.7s + 3s = 20.7s
 
-    // 7. After 1 second since disappearance (~22.7s), show "Waitttttt"
+    // 7. After 1 second since disappearance (~21.7s), show "Waitttttt"
     const timer7 = setTimeout(() => {
       setShowWait(true);
       setTimeout(() => setAnimateWait(true), 50);
-    }, 4200 + 4500 + 4500 + 4500 + 4000 + 1000); // 21.7s + 1s = 22.7s
+    }, 4200 + 4500 + 4500 + 4500 + 3000 + 1000); // 20.7s + 1s = 21.7s
 
     // 8. After 2 seconds, change text to "Did I say Flower?"
     const timer8 = setTimeout(() => {
       setWaitText("Did I say Flower?");
-    }, 4200 + 4500 + 4500 + 4500 + 4000 + 1000 + 2000); // 22.7s + 2s = 24.7s
+    }, 4200 + 4500 + 4500 + 4500 + 3000 + 1000 + 2000); // 21.7s + 2s = 23.7s
 
     // 9. After another 2 seconds, change text to "Oh, yes!"
     const timer9 = setTimeout(() => {
       setWaitText("Oh, yes!");
-    }, 4200 + 4500 + 4500 + 4500 + 4000 + 1000 + 2000 + 2000); // 24.7s + 2s = 26.7s
+    }, 4200 + 4500 + 4500 + 4500 + 3000 + 1000 + 2000 + 2000); // 23.7s + 2s = 25.7s
 
     // 10. After 2 seconds (was 1s) of "Oh, yes!", slide it out to the left & slide flower in from right
     const timer10 = setTimeout(() => {
       setSlideWaitLeft(true);
       setShowFlower(true);
       setTimeout(() => setAnimateFlower(true), 50);
-    }, 4200 + 4500 + 4500 + 4500 + 4000 + 1000 + 2000 + 2000 + 2000); // 26.7s + 2s = 28.7s
+    }, 4200 + 4500 + 4500 + 4500 + 3000 + 1000 + 2000 + 2000 + 2000); // 25.7s + 2s = 27.7s
 
     // 11. After 4 seconds of flower appearing, show the buttons
     const timer11 = setTimeout(() => {
       setShowButtons(true);
       setTimeout(() => setAnimateButtons(true), 50);
-    }, 4200 + 4500 + 4500 + 4500 + 4000 + 1000 + 2000 + 2000 + 2000 + 4000); // 28.7s + 4s = 32.7s
+    }, 4200 + 4500 + 4500 + 4500 + 3000 + 1000 + 2000 + 2000 + 2000 + 4000); // 27.7s + 4s = 31.7s
 
     return () => {
       clearTimeout(timer11);
