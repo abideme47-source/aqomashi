@@ -87,8 +87,8 @@ export default function Home() {
         setFinalTextIndex(1);
         setTimeout(() => {
           setFinalTextIndex(2);
-        }, 3000);
-      }, 3000);
+        }, 2000);
+      }, 2000);
 
       setTimeout(() => {
         setExitFinalText(true);
@@ -109,7 +109,7 @@ export default function Home() {
             }
           }, 30);
         }, 1000);
-      }, 3000 + 3000 + 3000 + 3000);
+      }, 2000 + 2000 + 2000 + 3000);
 
       setTimeout(() => {
         setExitTypewriterText(true);
@@ -198,7 +198,7 @@ export default function Home() {
   const handleDaySelect = (day: string) => {
     setSelectedDay(day);
     
-    // Exit pick a night and day buttons
+    // Exit pick a night and day buttons after 1 second
     setExitPickNight(true);
     setExitDayButtons(true);
     
@@ -210,19 +210,19 @@ export default function Home() {
       setDateConfirmedText("Owww, u actually picked a date, am loving it");
       setShowDateConfirmed(true);
       setTimeout(() => setAnimateDateConfirmed(true), 50);
-    }, 2000);
+    }, 1000);
     
-    // Change to second text after 3 seconds
+    // Change to second text after 5 seconds
     setTimeout(() => {
-      setDateConfirmedText("you what? dont you think this guy deserves a lovely smile selfie of your?");
-    }, 2000 + 3000);
+      setDateConfirmedText("you know what? dont you think this guy deserves a lovely smile selfie of your?");
+    }, 1000 + 5000);
     
-    // Change to third text after 4 more seconds
+    // Change to third text after 5 more seconds
     setTimeout(() => {
       setDateConfirmedText("i would love it if u actually take one rn, and not from ur gallery");
-    }, 2000 + 3000 + 4000);
+    }, 1000 + 5000 + 5000);
     
-    // Exit and show telegram button after 4 more seconds
+    // Exit and show telegram button after 5 more seconds
     setTimeout(() => {
       setExitDateConfirmed(true);
       setAnimateDateConfirmed(false);
@@ -231,7 +231,7 @@ export default function Home() {
         setShowTelegramButton(true);
         setTimeout(() => setAnimateTelegramButton(true), 50);
       }, 1000);
-    }, 2000 + 3000 + 4000 + 4000);
+    }, 1000 + 5000 + 5000 + 5000);
   };
 
   useEffect(() => {
@@ -597,8 +597,8 @@ export default function Home() {
             </div>
 
             <div className={`h-8 transition-opacity duration-500 ${showDateRejectMessage ? 'opacity-100' : 'opacity-0'}`}>
-              <p className="text-white text-base md:text-lg bg-black/40 backdrop-blur-md px-6 py-2 rounded-full font-sans tracking-wide border border-white/20 whitespace-nowrap max-w-md text-center">
-                err besmeab creative lhun balku lene yhe ygebal? aydebam. hooo!
+              <p className="text-white text-base md:text-lg bg-black/40 backdrop-blur-md px-6 py-2 rounded-full font-sans tracking-wide border border-white/20 max-w-md text-center leading-relaxed">
+                err besmeab creative lhun balku lene yhe ygebal?<br /> aydebam. hooo!
               </p>
             </div>
           </div>
