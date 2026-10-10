@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 const meriendaOne = localFont({
-  src: "../public/fonts/MeriendaOne-Regular.ttf",
+  src: "../public/fonts/MeriendaOne-Regular.woff2",
   variable: "--font-merienda-one",
 });
 
