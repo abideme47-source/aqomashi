@@ -197,7 +197,7 @@ export default function Home() {
               height: "900px",
               maxWidth: "none",
               flexShrink: 0,
-              transform: accepted ? 'translate(calc(-48vw + 350px), calc(48vh - 350px)) scale(0.75)' : 'translateY(10vh) scale(1)'
+              transform: accepted ? 'translate(calc(-48vw + 350px), calc(48vh - 350px)) scale(0.75) rotate(-15deg)' : 'translateY(10vh) scale(1) rotate(0deg)'
             }}
             className="drop-shadow-[0_10px_30px_rgba(0,0,0,0.7)] transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
           />
