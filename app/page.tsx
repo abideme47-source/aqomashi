@@ -33,6 +33,8 @@ export default function Home() {
   const [exitTypewriterText, setExitTypewriterText] = useState(false);
   const [showSoooo, setShowSoooo] = useState(false);
   const [animateSoooo, setAnimateSoooo] = useState(false);
+  const [showMiPanda, setShowMiPanda] = useState(false);
+  const [animateMiPanda, setAnimateMiPanda] = useState(false);
 
   const finalTexts = [
     "Owwwww",
@@ -87,6 +89,11 @@ export default function Home() {
           setTimeout(() => setAnimateSoooo(true), 50);
         }, 1000);
       }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000);
+
+      setTimeout(() => {
+        setShowMiPanda(true);
+        setTimeout(() => setAnimateMiPanda(true), 50);
+      }, 3000 + 3000 + 3000 + 3000 + 1000 + 15000 + 1000 + 1000 + 3000);
     }, 1000);
   };
 
@@ -348,6 +355,21 @@ export default function Home() {
         >
           <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "'MGF Pinlock Personal Use', sans-serif" }}>
             SOOOOO
+          </span>
+        </div>
+      )}
+
+      {/* Mi Panda Text */}
+      {showMiPanda && (
+        <div
+          className={`
+            fixed inset-0 flex items-start justify-center pointer-events-none z-50 pt-[10vh]
+            transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${animateMiPanda ? "animate-mi-panda-down" : "opacity-0 -translate-y-full"}
+          `}
+        >
+          <span className="text-4xl md:text-5xl text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)] max-w-3xl px-6 text-center leading-relaxed" style={{ fontFamily: "var(--font-sans), Arial, Helvetica, sans-serif" }}>
+            Mi Panda
           </span>
         </div>
       )}
